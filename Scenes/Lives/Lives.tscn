@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bcbk131uykeen"]
+
+[ext_resource type="Script" uid="uid://b5ww3mf0jv5e" path="res://Scenes/Lives/Lives.gd" id="1_1b334"]
+[ext_resource type="Texture2D" uid="uid://baqc8aqqba7m1" path="res://Assets/Player/PlayerBase.png" id="1_qdd1d"]
+
+[node name="Lives" type="Node2D" unique_id=1654237134]
+script = ExtResource("1_1b334")
+
+[node name="Life1" type="Sprite2D" parent="." unique_id=1570290145]
+scale = Vector2(2, 2)
+texture = ExtResource("1_qdd1d")
+
+[node name="Life2" type="Sprite2D" parent="." unique_id=795795454]
+position = Vector2(44, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_qdd1d")

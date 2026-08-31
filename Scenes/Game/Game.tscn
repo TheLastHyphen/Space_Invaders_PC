@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dqn8mv6t6evrv"]
+
+[ext_resource type="Script" uid="uid://dngpagdbwe7fj" path="res://Scenes/Game/Game.gd" id="1_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://n4q53tktiffn" path="res://Scenes/Level/Level.tscn" id="2_y3kpf"]
+[ext_resource type="PackedScene" uid="uid://ceopeglkhueoa" path="res://Scenes/BottomLine/BottomLine.tscn" id="3_3k6gv"]
+[ext_resource type="PackedScene" uid="uid://b64igqhp0g6nr" path="res://Scenes/Bunker/Bunker.tscn" id="3_xbxml"]
+[ext_resource type="PackedScene" uid="uid://cru7mlx8smmqo" path="res://Scenes/Player/Player.tscn" id="4_gvja8"]
+[ext_resource type="PackedScene" uid="uid://bcbk131uykeen" path="res://Scenes/Lives/Lives.tscn" id="7_1q8bt"]
+[ext_resource type="FontFile" uid="uid://8mjke3wsxh5" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="8_gvja8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_njqwk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_13qdw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xrivr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wi6ju"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b1lj4"]
+
+[node name="Game" type="Node" unique_id=582378819]
+script = ExtResource("1_gwu2e")
+
+[node name="Level" parent="." unique_id=576547556 instance=ExtResource("2_y3kpf")]
+position = Vector2(68, 48)
+
+[node name="Player" parent="." unique_id=1262958795 instance=ExtResource("4_gvja8")]
+position = Vector2(238, 558)
+
+[node name="TopKillZone" type="Area2D" parent="." unique_id=2071897806]
+position = Vector2(-1, 135)
+collision_layer = 64
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopKillZone" unique_id=654941498]
+position = Vector2(0, -63)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_njqwk")
+
+[node name="LeftScreen" type="Area2D" parent="." unique_id=1036182965]
+collision_layer = 2
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftScreen" unique_id=1612019218]
+position = Vector2(54, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_13qdw")
+
+[node name="RightScreen" type="Area2D" parent="." unique_id=470434354]
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightScreen" unique_id=1850075066]
+position = Vector2(1098, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_xrivr")
+
+[node name="RightKillZone" type="Area2D" parent="." unique_id=285427540]
+position = Vector2(1187, 108)
+collision_layer = 2048
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightKillZone" unique_id=613689329]
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_wi6ju")
+
+[node name="BottomKillZone" type="Area2D" parent="." unique_id=1946700555]
+position = Vector2(0, -3.5)
+collision_layer = 4
+collision_mask = 536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomKillZone" unique_id=131475218]
+position = Vector2(0, 604)
+shape = SubResource("WorldBoundaryShape2D_b1lj4")
+
+[node name="MoveTimer" type="Timer" parent="." unique_id=1462933909]
+
+[node name="SpaceShipSpawnTimer" type="Timer" parent="." unique_id=1860516099]
+autostart = true
+
+[node name="Lives" parent="." unique_id=1654237134 instance=ExtResource("7_1q8bt")]
+position = Vector2(200, 622)
+
+[node name="LivesRemain" type="Label" parent="." unique_id=1049500746]
+offset_left = 126.0
+offset_top = 611.0
+offset_right = 166.0
+offset_bottom = 634.0
+theme_override_fonts/font = ExtResource("8_gvja8")
+theme_override_font_sizes/font_size = 24
+text = "3"
+
+[node name="Bunker" parent="." unique_id=1931579830 instance=ExtResource("3_xbxml")]
+position = Vector2(198, 456)
+scale = Vector2(1.2499999, 1.2499999)
+
+[node name="Bunker2" parent="." unique_id=818742554 instance=ExtResource("3_xbxml")]
+position = Vector2(396, 455)
+scale = Vector2(1.2499999, 1.2499999)
+
+[node name="Bunker3" parent="." unique_id=1256085472 instance=ExtResource("3_xbxml")]
+position = Vector2(594, 458)
+scale = Vector2(1.2499999, 1.2499999)
+
+[node name="Bunker4" parent="." unique_id=1945594329 instance=ExtResource("3_xbxml")]
+position = Vector2(791.99994, 455)
+scale = Vector2(1.2499999, 1.2499999)
+
+[node name="BottomLine" parent="." unique_id=1392608331 instance=ExtResource("3_3k6gv")]
+
+[connection signal="area_entered" from="LeftScreen" to="." method="_on_left_screen_area_entered"]
+[connection signal="area_entered" from="RightScreen" to="." method="_on_right_screen_area_entered"]
+[connection signal="area_entered" from="RightKillZone" to="." method="_on_right_kill_zone_area_entered"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SpaceShipSpawnTimer" to="." method="_on_space_ship_spawn_timer_timeout"]

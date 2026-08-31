@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://3p1e75h0ngdi"]
+
+[ext_resource type="FontFile" uid="uid://8mjke3wsxh5" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="1_qwnta"]
+[ext_resource type="Script" uid="uid://gbh8h2ocwhkn" path="res://Scenes/GameOver/GameOver.gd" id="1_ybu6n"]
+
+[node name="GameOver" type="Control" unique_id=187887373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ybu6n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1903023661]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -217.0
+offset_right = 109.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="GameLabel" type="Label" parent="HBoxContainer" unique_id=1573855571]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_qwnta")
+theme_override_font_sizes/font_size = 24
+text = "GAME"
+
+[node name="OverLabel" type="Label" parent="HBoxContainer" unique_id=1333848455]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_qwnta")
+theme_override_font_sizes/font_size = 24
+text = "OVER"

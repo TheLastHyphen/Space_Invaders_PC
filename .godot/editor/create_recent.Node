@@ -1,0 +1,14 @@
+HBoxContainer
+Label
+Sprite2D
+AnimatedSprite2D
+CollisionShape2D
+Area2D
+TextureButton
+Node2D
+Node
+TextureRect
+Control
+VBoxContainer
+MarginContainer
+InvaderSquid

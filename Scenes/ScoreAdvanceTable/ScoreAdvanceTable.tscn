@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dn4aehjlpr3n4"]
+
+[ext_resource type="Texture2D" uid="uid://q0me65o2auxg" path="res://Assets/SpaceShip/MotherShip.png" id="1_5t8rp"]
+[ext_resource type="Script" uid="uid://haqppr4megty" path="res://Scenes/ScoreAdvanceTable/ScoreAdvanceTable.gd" id="1_yfglf"]
+[ext_resource type="Texture2D" uid="uid://be12t8l3xsltx" path="res://Assets/InvaderSquid/Squid_Single.png" id="2_q5o2u"]
+[ext_resource type="Texture2D" uid="uid://b3q6pefbhamvy" path="res://Assets/InvaderCrab/crab_single.png" id="3_yfglf"]
+[ext_resource type="Texture2D" uid="uid://dmvyyoogy64jr" path="res://Assets/InvaderOctopus/Octopus_Single.png" id="4_6l312"]
+[ext_resource type="FontFile" uid="uid://8mjke3wsxh5" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="5_q5o2u"]
+
+[node name="ScoreAdvanceTable" type="Control" unique_id=1031890857]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_yfglf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=300585875]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_right = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=63499066]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="space_ship" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=807051312]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("1_5t8rp")
+
+[node name="squid" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=287046208]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_q5o2u")
+
+[node name="crab" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1498039636]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_yfglf")
+
+[node name="octopus" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=683846958]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_6l312")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1553473886]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 26
+
+[node name="mysteryTextLabel" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1160261261]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_q5o2u")
+text = "= ? MYSTERY POINTS"
+
+[node name="squidTextLabel" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1943094112]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_q5o2u")
+text = "= 30 POINTS"
+
+[node name="crabTextLabel" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=2005186345]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_q5o2u")
+text = "= 20 POINTS"
+
+[node name="octopusTextLabel" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=2012221108]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_q5o2u")
+text = "= 10 POINTS"
+
+[node name="Label" type="Label" parent="." unique_id=873257066]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 329.0
+offset_top = -116.0
+offset_right = 833.0
+offset_bottom = -92.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_q5o2u")
+theme_override_font_sizes/font_size = 24
+text = "*SCORE ADVANCE TABLE*"

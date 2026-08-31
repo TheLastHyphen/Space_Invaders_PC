@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://rd3t63ncguuq"]
+
+[ext_resource type="Script" uid="uid://cv1u3axikkd1i" path="res://Scenes/Main/Main.gd" id="1_qtv3y"]
+[ext_resource type="FontFile" uid="uid://8mjke3wsxh5" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="4_i3fi7"]
+[ext_resource type="PackedScene" uid="uid://dn4aehjlpr3n4" path="res://Scenes/ScoreAdvanceTable/ScoreAdvanceTable.tscn" id="5_o8wgc"]
+
+[node name="Main" type="Control" unique_id=519123063]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qtv3y")
+
+[node name="ScoreAdvanceTable" parent="." unique_id=1031890857 instance=ExtResource("5_o8wgc")]
+visible = false
+layout_mode = 1
+offset_top = 133.0
+offset_bottom = -49.0
+
+[node name="Control" type="Control" parent="." unique_id=442796956]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -163.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control" unique_id=506609969]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Label" parent="Control/HBoxContainer" unique_id=270260566]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_i3fi7")
+theme_override_font_sizes/font_size = 24
+text = "PLAY"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control" unique_id=2056292904]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = 33.0
+offset_right = 247.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 25
+
+[node name="SpaceText" type="Label" parent="Control/HBoxContainer3" unique_id=1275619213]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_i3fi7")
+theme_override_font_sizes/font_size = 24
+text = "SPACE"
+
+[node name="InvaderText" type="Label" parent="Control/HBoxContainer3" unique_id=163493030]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_i3fi7")
+theme_override_font_sizes/font_size = 24
+text = "INVADERS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1207423045]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -98.0
+offset_right = 300.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartGameLabel" type="Label" parent="HBoxContainer" unique_id=1425709369]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_i3fi7")
+theme_override_font_sizes/font_size = 24
+text = "PRESS 1 TO START THE GAME"

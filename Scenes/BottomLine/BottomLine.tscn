@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ceopeglkhueoa"]
+
+[ext_resource type="Texture2D" uid="uid://c0j30msguytas" path="res://Assets/BottomLine/BottomLine.png" id="1_ekcwc"]
+
+[node name="BottomLine" type="Node2D" unique_id=1392608331]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=964075943]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 604.0
+offset_right = 16.0
+offset_bottom = 606.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(37, 1)
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=2145725413]
+layout_mode = 2
+texture = ExtResource("1_ekcwc")

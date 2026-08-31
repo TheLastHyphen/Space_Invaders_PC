@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://gy756bab20bq"]
+
+[ext_resource type="Script" uid="uid://0fi051j3sft7" path="res://Scenes/BunkerBlock/BunkerBlock.gd" id="1_j2n0w"]
+[ext_resource type="Texture2D" uid="uid://bbkunovy7iaii" path="res://Assets/BunkerBlock/BlockFrame0.png" id="2_j2uak"]
+[ext_resource type="Texture2D" uid="uid://dp56r0a4a2mai" path="res://Assets/BunkerBlock/BlockFrame1.png" id="3_hm7u7"]
+[ext_resource type="Texture2D" uid="uid://5dfhcaft22oc" path="res://Assets/BunkerBlock/BlockFrame2.png" id="4_0tcwc"]
+[ext_resource type="Texture2D" uid="uid://ck1wpu24ys736" path="res://Assets/BunkerBlock/BlockFrame3.png" id="5_hm7u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(7.75, 7.75)
+
+[node name="BunkerBlock" type="Area2D" unique_id=80503416]
+collision_layer = 32
+collision_mask = 792
+script = ExtResource("1_j2n0w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=457132887]
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="Frame0" type="Sprite2D" parent="." unique_id=1662136551]
+texture = ExtResource("2_j2uak")
+
+[node name="Frame1" type="Sprite2D" parent="." unique_id=336216002]
+visible = false
+texture = ExtResource("3_hm7u7")
+
+[node name="Frame2" type="Sprite2D" parent="." unique_id=1462172203]
+visible = false
+texture = ExtResource("4_0tcwc")
+
+[node name="Frame3" type="Sprite2D" parent="." unique_id=468978338]
+visible = false
+texture = ExtResource("5_hm7u7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

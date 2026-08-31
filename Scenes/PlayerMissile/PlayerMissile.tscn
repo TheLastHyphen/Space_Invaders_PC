@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://vy0it3bcev22"]
+
+[ext_resource type="Script" uid="uid://c4hhjuthyy8ui" path="res://Scenes/PlayerMissile/PlayerMissile.gd" id="1_5vihf"]
+[ext_resource type="Texture2D" uid="uid://clklitlgi2pd" path="res://Assets/PlayerMissile/bullet.png" id="1_dosfl"]
+[ext_resource type="Texture2D" uid="uid://30ppio7cpqg3" path="res://Assets/InvaderMissile1/InvaderBombExplode.png" id="3_4au4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(2, 8)
+
+[node name="PlayerMissile" type="Area2D" unique_id=1223959086]
+collision_layer = 256
+collision_mask = 1656
+script = ExtResource("1_5vihf")
+
+[node name="Missile" type="Sprite2D" parent="." unique_id=510133738]
+scale = Vector2(0.1, 0.25)
+texture = ExtResource("1_dosfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804043864]
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="Explode" type="Sprite2D" parent="." unique_id=945568155]
+texture = ExtResource("3_4au4c")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

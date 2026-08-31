@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c7lu22a8t2cwu"]
+
+[ext_resource type="Script" uid="uid://djmhu8ywx7gwu" path="res://Scenes/InvaderBomb1/InvaderBomb1.gd" id="1_dgurc"]
+[ext_resource type="Texture2D" uid="uid://7maqj0jjpcyp" path="res://Assets/InvaderMissile1/InvderBobmZShape.png" id="1_r8ree"]
+[ext_resource type="Texture2D" uid="uid://30ppio7cpqg3" path="res://Assets/InvaderMissile1/InvaderBombExplode.png" id="3_opeo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgurc"]
+atlas = ExtResource("1_r8ree")
+region = Rect2(0, 0, 4, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opeo5"]
+atlas = ExtResource("1_r8ree")
+region = Rect2(5, 0, 4, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwu2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgurc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opeo5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke3yi"]
+size = Vector2(4, 10)
+
+[node name="InvaderBomb1" type="Area2D" unique_id=1952932819]
+z_index = -1
+collision_layer = 8
+collision_mask = 420
+gravity_space_override = 1
+script = ExtResource("1_dgurc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1872413190]
+sprite_frames = SubResource("SpriteFrames_gwu2e")
+autoplay = "default"
+frame_progress = 0.43711713
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=177946197]
+shape = SubResource("RectangleShape2D_ke3yi")
+
+[node name="Explode" type="Sprite2D" parent="." unique_id=1358034504]
+texture = ExtResource("3_opeo5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
