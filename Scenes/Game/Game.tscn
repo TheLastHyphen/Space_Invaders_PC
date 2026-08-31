@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b64igqhp0g6nr" path="res://Scenes/Bunker/Bunker.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://cru7mlx8smmqo" path="res://Scenes/Player/Player.tscn" id="4_gvja8"]
 [ext_resource type="PackedScene" uid="uid://bcbk131uykeen" path="res://Scenes/Lives/Lives.tscn" id="7_1q8bt"]
+[ext_resource type="AudioStream" uid="uid://cmefnidc2ukdv" path="res://Assets/Audio/Invader_Move_1.wav" id="8_10ki7"]
 [ext_resource type="FontFile" uid="uid://8mjke3wsxh5" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="8_gvja8"]
+[ext_resource type="AudioStream" uid="uid://c4f3ctcqq3xbg" path="res://Assets/Audio/Invader_Move_2.wav" id="9_ti1oi"]
+[ext_resource type="AudioStream" uid="uid://bjo8f61f65hb1" path="res://Assets/Audio/Invader_Move_3.wav" id="10_edkrd"]
+[ext_resource type="AudioStream" uid="uid://ckhoqid675oud" path="res://Assets/Audio/Invader_Move_4.wav" id="11_bsqcq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_njqwk"]
 
@@ -106,6 +110,18 @@ position = Vector2(791.99994, 455)
 scale = Vector2(1.2499999, 1.2499999)
 
 [node name="BottomLine" parent="." unique_id=1392608331 instance=ExtResource("3_3k6gv")]
+
+[node name="InvaderMove1" type="AudioStreamPlayer2D" parent="." unique_id=615405453]
+stream = ExtResource("8_10ki7")
+
+[node name="InvaderMove2" type="AudioStreamPlayer2D" parent="." unique_id=2139507816]
+stream = ExtResource("9_ti1oi")
+
+[node name="InvaderMove3" type="AudioStreamPlayer2D" parent="." unique_id=966560375]
+stream = ExtResource("10_edkrd")
+
+[node name="InvaderMove4" type="AudioStreamPlayer2D" parent="." unique_id=1784548688]
+stream = ExtResource("11_bsqcq")
 
 [connection signal="area_entered" from="LeftScreen" to="." method="_on_left_screen_area_entered"]
 [connection signal="area_entered" from="RightScreen" to="." method="_on_right_screen_area_entered"]

@@ -7,6 +7,12 @@ extends Node
 @onready var lives: Node2D = $Lives
 @onready var lives_remain: Label = $LivesRemain
 @onready var player: Area2D = $Player
+@onready var invader_move_1: AudioStreamPlayer2D = $InvaderMove1
+@onready var invader_move_2: AudioStreamPlayer2D = $InvaderMove2
+@onready var invader_move_3: AudioStreamPlayer2D = $InvaderMove3
+@onready var invader_move_4: AudioStreamPlayer2D = $InvaderMove4
+
+var moveNote: int = 0;
 
 const SPACE_SHIP = preload("uid://dt74v7u3ed1qu")
 const GAME_OVER = preload("uid://3p1e75h0ngdi")
@@ -78,6 +84,12 @@ func OnUpdateScore(points: int) -> void:
 	ScoreDisplay.UpdateScores(score)
 
 func _on_timer_timeout() -> void:
+	if moveNote == 0: invader_move_1.play()
+	if moveNote == 1: invader_move_2.play()
+	if moveNote == 2: invader_move_3.play()
+	if moveNote == 3: invader_move_4.play()
+	moveNote += 1
+	if moveNote > 3: moveNote = 0
 	SignalHub.EmitOnTimerTimeOut()
 
 func _on_left_screen_area_entered(_area: Area2D) -> void:
