@@ -22,6 +22,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	ScoreDisplay.ClearScore()
+	HighScore.LoadHiScore()
+	ScoreDisplay.SetInitialHighScore()
 	get_tree().paused = false
 	play_label.text = ""
 	space_label.text = ""
