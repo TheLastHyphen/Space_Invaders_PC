@@ -31,7 +31,8 @@ func _ready() -> void:
 	SignalHub.OnInvaderKilled.connect(OnInvaderKilled)
 	SignalHub.OnCheckGameOver.connect(OnCheckGameOver)
 	SignalHub.OnForceGameOver.connect(OnForceGameOver)
-
+	ScoreDisplay.FlashScore()
+	
 func OnInvaderKilled() -> void:
 	TotalInvadersLeft -= 1
 	print("Invaders left: ", TotalInvadersLeft)
@@ -57,6 +58,7 @@ func EndGame() -> void:
 	get_tree().paused = true
 	add_child(GAME_OVER.instantiate())
 	await get_tree().create_timer(5.0).timeout
+	HighScore.SaveHighScore()
 	GameManager.LoadMain()
 
 func OnMoveTimerChange() -> void:
