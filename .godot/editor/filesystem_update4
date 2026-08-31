@@ -1,3 +1,7 @@
-res://Scenes/Player/Player.gd
-res://Scenes/Player/Player.tscn
 res://Scenes/Game/Game.tscn
+res://Scenes/Game/Game.gd
+res://Scenes/ScoreDisplay/ScoreDisplay.gd
+res://Globals/HighScore.gd
+res://Scenes/ScoreDisplay/ScoreDisplay.tscn
+res://Scenes/Main/Main.tscn
+res://Scenes/Main/Main.gd
