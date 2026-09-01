@@ -4,6 +4,7 @@ extends Area2D
 
 @onready var player_base: Sprite2D = $PlayerBase
 @onready var player_explosion: AnimatedSprite2D = $PlayerExplosion
+@onready var player_fire: AudioStreamPlayer2D = $PlayerFire
 
 const PLAYER_MISSILE = preload("uid://vy0it3bcev22")
 
@@ -21,6 +22,7 @@ func _input(event: InputEvent) -> void:
 			missile = PLAYER_MISSILE.instantiate()
 			missile.position = position
 			get_parent().add_child(missile)
+			player_fire.play()
 
 func _process(delta: float) -> void:
 	if canMove:
