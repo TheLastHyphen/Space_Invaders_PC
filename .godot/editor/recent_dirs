@@ -1,3 +1,4 @@
+res://Assets/InvaderExplode/
 H:/Projects/Space_Invaders_PC/Exported/
 res://Scenes/ScoreDisplay/
 res://Globals/
@@ -8,7 +9,6 @@ res://Scenes/BottomLine/
 res://Scenes/ScoreAdvanceTable/
 res://Scenes/SpaceShip/
 res://Scenes/InvaderExplode/
-res://Assets/InvaderExplode/
 res://Scenes/PlayerMissile/
 res://Scenes/Player/
 res://Scenes/Bunker/
