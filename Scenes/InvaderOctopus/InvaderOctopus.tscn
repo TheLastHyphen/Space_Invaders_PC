@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp3un1en176gj" path="res://Scenes/InvaderOctopus/InvaderOctopus.gd" id="1_d6b1k"]
 [ext_resource type="Texture2D" uid="uid://b3n6ogtv4r25o" path="res://Assets/InvaderOctopus/Octopus65x24.png" id="2_pmbo0"]
-[ext_resource type="PackedScene" uid="uid://dykcroqtk3lsx" path="res://Scenes/InvaderExplode/InvaderExplode.tscn" id="3_pmbo0"]
+[ext_resource type="Texture2D" uid="uid://dippsihwu4o0q" path="res://Assets/InvaderExplode/InvaderExplode.png" id="4_0iy1u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5pcb"]
 atlas = ExtResource("2_pmbo0")
@@ -29,6 +29,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lj4"]
 size = Vector2(32, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmbo0"]
+atlas = ExtResource("4_0iy1u")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_pmbo0")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 35.0
+}]
+
 [node name="InvaderOctopus" type="Area2D" unique_id=1330202871]
 collision_layer = 512
 collision_mask = 391
@@ -43,10 +58,10 @@ shape = SubResource("RectangleShape2D_b1lj4")
 [node name="BombDrop" type="Timer" parent="." unique_id=814380219]
 autostart = true
 
-[node name="InvaderExplode" parent="." unique_id=911321364 instance=ExtResource("3_pmbo0")]
+[node name="InvaderExplode" type="AnimatedSprite2D" parent="." unique_id=2125237094]
 visible = false
-scale = Vector2(0.5, 0.5)
-speed_scale = 10.0
+scale = Vector2(2.133, 1.6)
+sprite_frames = SubResource("SpriteFrames_13qdw")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="BombDrop" to="." method="_on_bomb_drop_timeout"]

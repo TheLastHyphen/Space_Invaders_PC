@@ -28,7 +28,7 @@ func _on_area_entered(area: Area2D) -> void:
 		SignalHub.EmitOnForceGameOver()
 	elif area.name != "RightScreen" && area.name != "LeftScreen":
 		SignalHub.EmitOnUpdateScore(points)
-		animated_sprite_2d.hide()
+		invader_move_anim.hide()
 		invader_explode.show()
 		invader_explode.play()
 

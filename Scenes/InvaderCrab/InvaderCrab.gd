@@ -28,7 +28,7 @@ func _on_area_entered(area: Area2D) -> void:
 		SignalHub.EmitOnForceGameOver()
 	elif area.name != "RightScreen" && area.name != "LeftScreen":
 		SignalHub.EmitOnUpdateScore(points)
-		animated_sprite_2d.hide()
+		invader_move_anim.hide()
 		invader_explode.show()
 		invader_explode.play()
 
@@ -36,3 +36,8 @@ func _on_invader_explode_animation_finished() -> void:
 	SignalHub.EmitOnMoveTimerChange()
 	SignalHub.EmitOnInvaderKilled()
 	queue_free()
+
+#func _on_animated_sprite_2d_2_animation_finished() -> void:
+	#SignalHub.EmitOnMoveTimerChange()
+	#SignalHub.EmitOnInvaderKilled()
+	#queue_free()

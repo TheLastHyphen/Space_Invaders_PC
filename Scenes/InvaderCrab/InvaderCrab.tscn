@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ck15n8xp57pkf" path="res://Scenes/InvaderCrab/InvaderCrab.gd" id="1_ulnuw"]
 [ext_resource type="Texture2D" uid="uid://d3r7yhdtmugo2" path="res://Assets/InvaderCrab/Crab64x23.png" id="2_awpnw"]
-[ext_resource type="PackedScene" uid="uid://dykcroqtk3lsx" path="res://Scenes/InvaderExplode/InvaderExplode.tscn" id="3_7n14l"]
+[ext_resource type="Texture2D" uid="uid://dippsihwu4o0q" path="res://Assets/InvaderExplode/InvaderExplode.png" id="4_huejj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n14l"]
 atlas = ExtResource("2_awpnw")
@@ -29,6 +29,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbxml"]
 size = Vector2(32, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhoqh"]
+atlas = ExtResource("4_huejj")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_uhoqh")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 35.0
+}]
+
 [node name="InvaderCrab" type="Area2D" unique_id=308702232]
 collision_layer = 512
 collision_mask = 391
@@ -44,10 +59,11 @@ shape = SubResource("RectangleShape2D_xbxml")
 [node name="BombDrop" type="Timer" parent="." unique_id=880334965]
 autostart = true
 
-[node name="InvaderExplode" parent="." unique_id=911321364 instance=ExtResource("3_7n14l")]
+[node name="InvaderExplode" type="AnimatedSprite2D" parent="." unique_id=1610052221]
 visible = false
-scale = Vector2(0.5, 0.5)
-speed_scale = 10.0
+position = Vector2(4.7683716e-07, 9.536743e-07)
+scale = Vector2(2.1333334, 1.6000001)
+sprite_frames = SubResource("SpriteFrames_13qdw")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="BombDrop" to="." method="_on_bomb_drop_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://camxh65fwww16" path="res://Assets/InvaderSquid/Squid65x24.png" id="1_8b5vt"]
 [ext_resource type="Script" uid="uid://bmd1jb0sq6jm" path="res://Scenes/InvaderSquid/InvaderSquid.gd" id="1_lbdod"]
-[ext_resource type="PackedScene" uid="uid://dykcroqtk3lsx" path="res://Scenes/InvaderExplode/InvaderExplode.tscn" id="3_8f4ai"]
+[ext_resource type="Texture2D" uid="uid://dippsihwu4o0q" path="res://Assets/InvaderExplode/InvaderExplode.png" id="3_8f4ai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbdod"]
 atlas = ExtResource("1_8b5vt")
@@ -29,6 +29,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob2yj"]
 size = Vector2(26, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0km4i"]
+atlas = ExtResource("3_8f4ai")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_0km4i")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 35.0
+}]
+
 [node name="InvaderSquid" type="Area2D" unique_id=1514754801]
 collision_layer = 512
 collision_mask = 391
@@ -44,10 +59,10 @@ shape = SubResource("RectangleShape2D_ob2yj")
 [node name="BombDrop" type="Timer" parent="." unique_id=1151639252]
 autostart = true
 
-[node name="InvaderExplode" parent="." unique_id=911321364 instance=ExtResource("3_8f4ai")]
+[node name="InvaderExplode" type="AnimatedSprite2D" parent="." unique_id=147242994]
 visible = false
-scale = Vector2(0.5, 0.5)
-speed_scale = 10.0
+scale = Vector2(2.133, 1.6)
+sprite_frames = SubResource("SpriteFrames_xrivr")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="BombDrop" to="." method="_on_bomb_drop_timeout"]
