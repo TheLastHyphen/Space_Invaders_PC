@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ck15n8xp57pkf" path="res://Scenes/InvaderCrab/InvaderCrab.gd" id="1_ulnuw"]
 [ext_resource type="Texture2D" uid="uid://d3r7yhdtmugo2" path="res://Assets/InvaderCrab/Crab64x23.png" id="2_awpnw"]
 [ext_resource type="Texture2D" uid="uid://dippsihwu4o0q" path="res://Assets/InvaderExplode/InvaderExplode.png" id="4_huejj"]
+[ext_resource type="AudioStream" uid="uid://bvuo2ynne2l5w" path="res://Assets/Audio/InvaderPop.wav" id="4_uhoqh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n14l"]
 atlas = ExtResource("2_awpnw")
@@ -64,6 +65,9 @@ visible = false
 position = Vector2(4.7683716e-07, 9.536743e-07)
 scale = Vector2(2.1333334, 1.6000001)
 sprite_frames = SubResource("SpriteFrames_13qdw")
+
+[node name="InvaderPop" type="AudioStreamPlayer2D" parent="." unique_id=1198065228]
+stream = ExtResource("4_uhoqh")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="BombDrop" to="." method="_on_bomb_drop_timeout"]

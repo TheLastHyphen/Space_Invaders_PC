@@ -2,6 +2,7 @@ class_name InvaderSquid
 extends Invader
 
 @onready var invader_explode: AnimatedSprite2D = $InvaderExplode
+@onready var invader_pop: AudioStreamPlayer2D = $InvaderPop
 
 const bombDropChance: float = 0.075
 const points: int = 30
@@ -30,6 +31,7 @@ func _on_area_entered(area: Area2D) -> void:
 		SignalHub.EmitOnUpdateScore(points)
 		invader_move_anim.hide()
 		invader_explode.show()
+		invader_pop.play()
 		invader_explode.play()
 
 func _on_invader_explode_animation_finished() -> void:
