@@ -5,6 +5,7 @@ extends Control
 @onready var space_label: Label = $Control/HBoxContainer3/SpaceText
 @onready var invader_label: Label = $Control/HBoxContainer3/InvaderText
 @onready var start_game_label: Label = $HBoxContainer/StartGameLabel
+@onready var demo_start: Timer = $DemoStart
 
 const SCORE_ADVANCE_TABLE = preload("uid://dn4aehjlpr3n4")
 
@@ -38,6 +39,7 @@ func _ready() -> void:
 	get_tree().get_root().add_child(score_advance_table)
 	start_game_label.show()
 	DrawText(startGameText, start_game_label, startGameCharDelay)
+	demo_start.start()
 
 func DrawText(text: String, label: Label, delay: float) -> void:
 	for s in text:
@@ -46,3 +48,8 @@ func DrawText(text: String, label: Label, delay: float) -> void:
 
 func WaitDrawChar(delay: float) -> void:
 	await get_tree().create_timer(delay).timeout
+
+func _on_demo_start_timeout() -> void:
+	States.isDemo = true
+	score_advance_table.queue_free()
+	GameManager.LoadGame()
