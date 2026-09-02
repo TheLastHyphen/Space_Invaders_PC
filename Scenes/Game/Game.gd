@@ -56,6 +56,7 @@ func OnCheckGameOver() -> void:
 	lives.UpdateLives()
 	if lives.RemainingLives == 0:
 		EndGame()
+		States.isDemo = false
 	lives_remain.text = str(lives.RemainingLives)
 
 func EndGame() -> void:
@@ -80,16 +81,18 @@ func OnDrawnInvadersComplete(totalInvaders: int) -> void:
 	timer.start()
 
 func OnUpdateScore(points: int) -> void:
-	score += points
-	ScoreDisplay.UpdateScores(score)
+	if States.isDemo == false:
+		score += points
+		ScoreDisplay.UpdateScores(score)
 
 func _on_timer_timeout() -> void:
-	if moveNote == 0: invader_move_1.play()
-	if moveNote == 1: invader_move_2.play()
-	if moveNote == 2: invader_move_3.play()
-	if moveNote == 3: invader_move_4.play()
-	moveNote += 1
-	if moveNote > 3: moveNote = 0
+	if States.isDemo == false:
+		if moveNote == 0: invader_move_1.play()
+		if moveNote == 1: invader_move_2.play()
+		if moveNote == 2: invader_move_3.play()
+		if moveNote == 3: invader_move_4.play()
+		moveNote += 1
+		if moveNote > 3: moveNote = 0
 	SignalHub.EmitOnTimerTimeOut()
 
 func _on_left_screen_area_entered(_area: Area2D) -> void:
