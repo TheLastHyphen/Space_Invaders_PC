@@ -31,7 +31,8 @@ func _on_area_entered(area: Area2D) -> void:
 		SignalHub.EmitOnUpdateScore(points)
 		invader_move_anim.hide()
 		invader_explode.show()
-		invader_pop.play()
+		if States.isDemo == false:
+			invader_pop.play()
 		invader_explode.play()
 
 func _on_invader_explode_animation_finished() -> void:
