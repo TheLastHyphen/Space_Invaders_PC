@@ -22,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameManager.LoadGame()
 
 func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color.BLACK)
 	ScoreDisplay.ClearScore()
 	HighScore.LoadHiScore()
 	ScoreDisplay.SetInitialHighScore()
