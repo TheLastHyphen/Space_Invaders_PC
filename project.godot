@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+States="*uid://dukmgflwr16sj"
 HighScore="*uid://3w4wo3wavyck"
 ScoreDisplay="*uid://d24aigjflxirg"
 SignalHub="*uid://bnh1kbdgvdvcq"
