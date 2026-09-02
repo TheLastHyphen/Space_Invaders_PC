@@ -80,4 +80,7 @@ frame_progress = 1.0
 stream = ExtResource("4_ude3g")
 volume_db = -9.38
 
+[node name="DemoMoveTimer" type="Timer" parent="." unique_id=1157899711]
+
 [connection signal="animation_finished" from="PlayerExplosion" to="." method="_on_player_explosion_finished"]
+[connection signal="timeout" from="DemoMoveTimer" to="." method="_on_demo_move_timer_timeout"]
